@@ -2,77 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./style.css">
   <script src="./main.js" defer></script>
-  <title>Interactive card details</title>
+  <meta name="theme-color" content="hsl(249, 99%, 64%)" />
+  <title>Interactive details</title>
 </head>
 
 <body>
 <main>
-<img class="background-img" src="./images/bg-main-desktop.png" alt="">
-<div class="container">
+  <div class="bg-image-container">
+  </div>
+  <div class="container">
+    <section class="cards-container">
 
-<div class="cards-container">
-
-  <div class="card-front">
-    <img src="./images/bg-card-front.png" alt="">
-    <div class="front-details">
-      <img src="./images/card-logo.svg" alt="">
-      <div class="interactive-details">
-        <span class="card-card-number">0000 0000 0000 0000</span> 
-          <div class="name-date-wrapper">
-            <span class="card-cardholder">Jane Appleseed</span>
-            <span class="card-expiry-date">00/00</span> 
+      <div class="card-front">
+        <img src="./images/bg-card-front.png" alt="">
+        <div class="front-details">
+          <img src="./images/card-logo.svg" alt="">
+          <div class="interactive-details">
+              <span class="card-card-number">0000 0000 0000 0000</span> 
+              <div class="name-date-wrapper">
+                <span class="card-cardholder">Jane Appleseed</span>
+                <div class="card-expiry-date">
+                  <span class="card-expiry-date-MM">00</span>
+                  <span>/</span>
+                  <span class="card-expiry-date-YY">00</span>
+                </div>
+              </div>
           </div>
-      </div>
-      </div>
-  </div>
-
-  <div class="card-back">
-    <img class='back-img' src="./images/bg-card-back.png" alt="">
-    <div class="back-details">
-      <span class="card-cvc">000</span>
-    </div>
-  </div>
-</div>
-
-<div class="form-container">
-  <form action="">
-    <label for="cardholder-name">CARDHOLDER NAME</label>
-    <input name="cardholder-name" type="text" value="" placeholder="e.g. Jane Appleseed">
-
-    <label for="card-number">CARD NUMBER</label>
-    <input name="card-number" type="text" value="" placeholder="e.g. 1234567890">
-
-    <div class="date-cvc-wrapper">
-
-      <div class="date">
-        <label for="expiry-date">EXP. DATE (MM/YY)</label>
-        <div class="date-input">
-          <input name="expiry-date" min="00" max="99" type="number" value="" placeholder="MM">
-          <input name="expiry-date" min="00" max="99" type="number" value="" placeholder="YY">
         </div>
       </div>
 
-      <div class="cvc">
-        <label for="cvc">CVC</label>
-        <input name="cvc" type="text" value="" placeholder="e.g. 123">
+      <div class="card-back">
+        <img class='back-img' src="./images/bg-card-back.png" alt="">
+        <div class="back-details">
+          <span class="card-cvc">000</span>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <input type="submit" value="Confirm">
-  </form>
-</div>
+    <section class="form-container">
+      <form action="" novalidate>
+        <div class="name">
+          <label for="cardholder-name">CARDHOLDER NAME</label>
+          <input name="cardholder-name" type="text" value="" placeholder="Jane Appleseed" pattern="(\p{L} ?)*" required> <!-- pattern="[a-zA-Z]*" - does not contain characters like íážČ and umlauts-->
+          <span class="alert-message">Name</span>
+        </div>
 
-<div class="thank-container">
-  <img src="./images/icon-complete.svg" alt="">
-  <h1>  Thank you!  </h1>
-  <p>  We've added your card details  </p>
-  <button>Continue</button>
-</div>
-</div>
+        <div class="number">
+          <label for="card-number">CARD NUMBER</label>
+          <input name="card-number" value="" type="text" minlength="19" maxlength="19" pattern="[0-9 ?]{19}" placeholder="0000 0000 0000 0000" required>
+          <span class="alert-message">Number</span>
+        </div>
+
+        <div class="date-cvc-wrapper">
+          <div class="date">
+            <label for="expiry-date">EXP. DATE (MM/YY)</label>
+            <div class="date-input">
+              <input name="expiry-date-MM" type="text" value="" minlength="2" maxlength="2" pattern="0[1-9]|1[0-2]" placeholder="MM" required>
+              <input name="expiry-date-YY" type="text" value="" minlength="2" maxlength="2" pattern="[0-9]{2}" placeholder="YY" required>
+              <span class="alert-message">Date</span>
+            </div>
+          </div>
+
+          <div class="cvc">
+            <label for="cvc">CVC</label>
+            <input name="cvc" value="" type="text" minlength="3" maxlength="3" pattern="[0-9]{3}" placeholder="000" required>
+            <span class="alert-message">cvc</span>
+          </div>
+        </div>
+
+        <input type="submit" value="Confirm">
+      </form>
+    </section>
+
+    <section class="thank-container">
+      <img src="./images/icon-complete.svg" alt="">
+      <h1>  Thank you!  </h1>
+      <p>  We've added your card details  </p>
+      <button>Continue</button>
+    </section>
+  </div>
 </main>
 
 <footer class="attribution">
