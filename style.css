@@ -224,7 +224,6 @@ input[type=submit]:active{
 .thank-container{
     width: 40%;
     padding: 2em;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -262,7 +261,7 @@ input[type=submit]:active{
 }
 
 
-@media (max-width: 800px){
+@media (orientation:portrait) and (max-width: 970px){
 
     html{
         overflow-x: hidden;
@@ -337,10 +336,68 @@ input[type=submit]:active{
 
     .thank-container{
         height: 70%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        padding: 0 2em;
     }
+
+    .thank-container button{
+        width: 50%;
+    }
+    
+
 }
 
-@media (max-width: 414px){
+@media (orientation:landscape) and (max-width: 800px){
+
+    html{
+        overflow-x: hidden;
+    }
+
+    body{
+        width: 100vw;
+        position:static;
+        min-height: 100vh;
+    }
+
+    main{
+        max-width: 100%;
+        width: 100vw;
+        min-height: 100vh;
+    }
+
+    .cards-container{
+        width: 40%;
+    }
+
+    .form-container{
+        width: 60%;
+    }
+
+    .thank-container{
+        width: 60%;
+    }
+
+    .card-front{
+        transform: scale(0.6);
+        margin: 0;
+        bottom: 0;
+        right: 3em;
+    }
+
+    .card-back{
+        transform: scale(0.6);
+        margin: 0;
+        bottom: 5em;
+        right: 3em;
+    }
+
+}
+
+@media (orientation:portrait) and (max-width: 414px){
 
     .card-front{
         position:relative;
@@ -358,76 +415,21 @@ input[type=submit]:active{
         transform: scale(0.4);
         margin: 0;
     }
+
 }
-  /*
-    .container{
-        height: 100vh;
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        max-width: '';
-        padding: 1em;
-    }
 
-    .cards-container{
-        background-color: rgba(60, 255, 0, 0.235);
-        position: relative;
-        width: 80%;
-        height: 40%;
-        padding: 1em;
-    }
-
-    .card-front{
-        transform: scale(60%);
-        margin-bottom: 0;
-        text-align: start;
-        position:absolute;
-        top: 6em;
-        right: 5%;
-        margin: 0;
-        padding: 0;
-        z-index: 1;
-    }
-
-    .card-back{
-        transform: scale(60%);
-        text-align: end;
-        position:absolute;
-        top: 0;
-        left: 5%;
-    }
-
-    .front-details{
-        position:absolute;
-        top: 0;
-        left: 0;
-        padding: 0;
-        height: 12em;
-        width: 23em;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: space-between;
-    }
-
-    .form-container{
-        height: 70%;
-        width: 90%;
-        display: flex;
-        justify-content:  center;
-        align-items: center;
-        padding: 2em;
-    }
-
-    form{
-        max-width: 30em;
-    }
+@media (orientation:landscape) and (max-width: 680px){
 
     .thank-container{
-        height: 70%;
+    text-align: center;
+    padding-left: 5em;
     }
-    */
 
+    .thank-container h1{
+        font-size: 1em;
+    }
+
+    .thank-container p{
+        font-size: 1em;
+    }
+}
